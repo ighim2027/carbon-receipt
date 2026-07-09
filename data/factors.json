@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "schema": 1,
+    "generated": "2026-07-08",
+    "verified_policy": "verified=true means the numeric value was read directly from the cited primary source during generation. verified=false means it was inferred, interpolated, or taken from a secondary source; the CLI warns when one is used."
+  },
+  "constants": {
+    "lb_to_kg": {"value": 0.45359237, "unit": "kg/lb", "verified": true, "source": {"publisher": "NIST", "dataset": "exact definition of the international pound"}},
+    "earth_radius_km": {"value": 6371.0088, "unit": "km", "verified": true, "source": {"publisher": "IUGG", "dataset": "mean Earth radius R1"}}
+  },
+  "driving": {
+    "car_mile": {"value": 0.392, "unit": "kg CO2e/mile", "verified": true, "source": {"publisher": "US EPA", "dataset": "Greenhouse Gas Equivalencies Calculator - Calculations and References", "url": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references", "retrieved": "2026-07-08"}, "note": "US car/light-truck average. 8.89e-3 t CO2/gal / 22.8 mpg / 0.994 (CH4+N2O uplift) = 3.923e-4 t/mi. Cross-check: 4.29 t/yr / 10,917 VMT = 3.929e-4 t/mi.", "derivation": {"t_co2_per_gallon": 0.00889, "mpg": 22.8, "co2_share_of_co2e": 0.994}}
+  },
+  "natural_gas": {
+    "therm": {"value": 5.3, "unit": "kg CO2/therm", "verified": true, "source": {"publisher": "US EPA", "dataset": "Greenhouse Gas Equivalencies Calculator - Calculations and References", "url": "https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references", "retrieved": "2026-07-08"}, "note": "CO2 ONLY. Excludes CH4 and N2O from combustion, and excludes upstream leakage, which is material for gas."}
+  },
+  "grid": {
+    "unit": "lb CO2e/MWh generated",
+    "source": {"publisher": "US EPA", "dataset": "eGRID2023 (Rev 2), Summary Tables", "url": "https://www.epa.gov/system/files/documents/2025-06/summary_tables_rev2.pdf", "data_year": 2023, "retrieved": "2026-07-08", "note": "Total output CO2e emission rates, lb/MWh generated. GWP basis per eGRID release."},
+    "subregions": {
+      "AKGD": {"name": "ASCC Alaska Grid", "co2e_lb_per_mwh": 905.1, "grid_loss_pct": 4.1},
+      "AKMS": {"name": "ASCC Miscellaneous", "co2e_lb_per_mwh": 522.4, "grid_loss_pct": 4.1},
+      "AZNM": {"name": "WECC Southwest", "co2e_lb_per_mwh": 706.2, "grid_loss_pct": 4.1},
+      "CAMX": {"name": "WECC California", "co2e_lb_per_mwh": 430.0, "grid_loss_pct": 4.1},
+      "ERCT": {"name": "ERCOT All", "co2e_lb_per_mwh": 736.6, "grid_loss_pct": 4.2},
+      "FRCC": {"name": "FRCC All", "co2e_lb_per_mwh": 784.8, "grid_loss_pct": 4.2},
+      "HIMS": {"name": "HICC Miscellaneous", "co2e_lb_per_mwh": 1133.3, "grid_loss_pct": 4.4},
+      "HIOA": {"name": "HICC Oahu", "co2e_lb_per_mwh": 1498.9, "grid_loss_pct": 4.4},
+      "MROE": {"name": "MRO East", "co2e_lb_per_mwh": 1405.0, "grid_loss_pct": 4.2},
+      "MROW": {"name": "MRO West", "co2e_lb_per_mwh": 926.6, "grid_loss_pct": 4.2},
+      "NEWE": {"name": "NPCC New England", "co2e_lb_per_mwh": 543.2, "grid_loss_pct": 4.2},
+      "NWPP": {"name": "WECC Northwest", "co2e_lb_per_mwh": 635.3, "grid_loss_pct": 4.1},
+      "NYCW": {"name": "NPCC NYC/Westchester", "co2e_lb_per_mwh": 865.7, "grid_loss_pct": 4.2},
+      "NYLI": {"name": "NPCC Long Island", "co2e_lb_per_mwh": 1189.3, "grid_loss_pct": 4.2},
+      "NYUP": {"name": "NPCC Upstate NY", "co2e_lb_per_mwh": 242.8, "grid_loss_pct": 4.2},
+      "PRMS": {"name": "Puerto Rico Miscellaneous", "co2e_lb_per_mwh": 1548.5, "grid_loss_pct": 4.2},
+      "RFCE": {"name": "RFC East", "co2e_lb_per_mwh": 599.2, "grid_loss_pct": 4.2},
+      "RFCM": {"name": "RFC Michigan", "co2e_lb_per_mwh": 976.0, "grid_loss_pct": 4.2},
+      "RFCW": {"name": "RFC West", "co2e_lb_per_mwh": 916.1, "grid_loss_pct": 4.2},
+      "RMPA": {"name": "WECC Rockies", "co2e_lb_per_mwh": 1042.5, "grid_loss_pct": 4.1},
+      "SPNO": {"name": "SPP North", "co2e_lb_per_mwh": 867.7, "grid_loss_pct": 4.2},
+      "SPSO": {"name": "SPP South", "co2e_lb_per_mwh": 875.6, "grid_loss_pct": 4.2},
+      "SRMV": {"name": "SERC Mississippi Valley", "co2e_lb_per_mwh": 741.7, "grid_loss_pct": 4.2},
+      "SRMW": {"name": "SERC Midwest", "co2e_lb_per_mwh": 1248.6, "grid_loss_pct": 4.2},
+      "SRSO": {"name": "SERC South", "co2e_lb_per_mwh": 846.0, "grid_loss_pct": 4.2},
+      "SRTV": {"name": "SERC Tennessee Valley", "co2e_lb_per_mwh": 903.3, "grid_loss_pct": 4.2},
+      "SRVC": {"name": "SERC Virginia/Carolina", "co2e_lb_per_mwh": 596.3, "grid_loss_pct": 4.2},
+      "US": {"name": "U.S. average", "co2e_lb_per_mwh": 770.9, "grid_loss_pct": 4.2}
+    },
+    "states": {
+      "AK": {"co2e_lb_per_mwh": 814.5}, "AL": {"co2e_lb_per_mwh": 714.0}, "AR": {"co2e_lb_per_mwh": 998.4},
+      "AZ": {"co2e_lb_per_mwh": 689.1}, "CA": {"co2e_lb_per_mwh": 394.8}, "CO": {"co2e_lb_per_mwh": 1091.1},
+      "CT": {"co2e_lb_per_mwh": 540.7}, "DC": {"co2e_lb_per_mwh": 395.0}, "DE": {"co2e_lb_per_mwh": 704.2},
+      "FL": {"co2e_lb_per_mwh": 789.1}, "GA": {"co2e_lb_per_mwh": 717.4}, "HI": {"co2e_lb_per_mwh": 1394.7},
+      "IA": {"co2e_lb_per_mwh": 634.2}, "ID": {"co2e_lb_per_mwh": 313.9}, "IL": {"co2e_lb_per_mwh": 474.4},
+      "IN": {"co2e_lb_per_mwh": 1465.5}, "KS": {"co2e_lb_per_mwh": 733.3}, "KY": {"co2e_lb_per_mwh": 1747.0},
+      "LA": {"co2e_lb_per_mwh": 763.1}, "MA": {"co2e_lb_per_mwh": 830.1}, "MD": {"co2e_lb_per_mwh": 522.2},
+      "ME": {"co2e_lb_per_mwh": 316.8}, "MI": {"co2e_lb_per_mwh": 797.4}, "MN": {"co2e_lb_per_mwh": 752.3},
+      "MO": {"co2e_lb_per_mwh": 1454.6}, "MS": {"co2e_lb_per_mwh": 828.3}, "MT": {"co2e_lb_per_mwh": 1063.9},
+      "NC": {"co2e_lb_per_mwh": 626.4}, "ND": {"co2e_lb_per_mwh": 1297.9}, "NE": {"co2e_lb_per_mwh": 1025.8},
+      "NH": {"co2e_lb_per_mwh": 276.2}, "NJ": {"co2e_lb_per_mwh": 470.2}, "NM": {"co2e_lb_per_mwh": 773.6},
+      "NV": {"co2e_lb_per_mwh": 643.9}, "NY": {"co2e_lb_per_mwh": 466.6}, "OH": {"co2e_lb_per_mwh": 1068.3},
+      "OK": {"co2e_lb_per_mwh": 648.8}, "OR": {"co2e_lb_per_mwh": 365.0}, "PA": {"co2e_lb_per_mwh": 647.9},
+      "PR": {"co2e_lb_per_mwh": 1548.5}, "RI": {"co2e_lb_per_mwh": 840.0}, "SC": {"co2e_lb_per_mwh": 560.4},
+      "SD": {"co2e_lb_per_mwh": 335.6}, "TN": {"co2e_lb_per_mwh": 661.2}, "TX": {"co2e_lb_per_mwh": 771.2},
+      "UT": {"co2e_lb_per_mwh": 1421.2}, "VA": {"co2e_lb_per_mwh": 539.6}, "VT": {"co2e_lb_per_mwh": 52.2},
+      "WA": {"co2e_lb_per_mwh": 266.6}, "WI": {"co2e_lb_per_mwh": 1163.6}, "WV": {"co2e_lb_per_mwh": 1968.9},
+      "WY": {"co2e_lb_per_mwh": 1833.3}, "US": {"co2e_lb_per_mwh": 770.9}
+    },
+    "default_grid_loss_pct": 4.2,
+    "note": "eGRID rates are per MWh GENERATED. Consumption-based accounting divides by (1 - grid_loss) to get kg per kWh DELIVERED. The state table does not publish per-state loss; national 4.2% is applied."
+  },
+  "flight": {
+    "unit": "kg CO2e/passenger-km, with radiative forcing",
+    "source": {"publisher": "UK DESNZ (formerly DEFRA)", "dataset": "Greenhouse gas reporting: conversion factors 2025, 'Business travel - air'", "url": "https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting", "data_year": 2023, "retrieved": "2026-07-08", "note": "kg CO2e per passenger-km, WITH radiative forcing. 2025 release; the 2024 release used COVID-depressed 2021 load factors and overstates per-passenger emissions by 16-42%."},
+    "haul_bands": {
+      "domestic": {"max_km": 483, "economy": {"value": 0.22928, "verified": false, "note": "Secondary source (OpenCO2 mirror of DEFRA domestic average passenger, with RF). Vintage not confirmed as 2025. Domestic is published as a single average, not split by cabin."}},
+      "short_haul": {"max_km": 3700, "economy": {"value": 0.13, "verified": false, "note": "NOT read from the DEFRA table. Inferred from a secondary source stating economy spans 0.13-0.20 kg/pkm across haul bands. Treat as a placeholder."}},
+      "long_haul": {"max_km": null, "economy": {"value": 0.11704, "verified": true, "note": "DEFRA 2025 long-haul economy, with RF. Two independent secondary sources agree to 5 s.f. and 3 s.f."}}
+    },
+    "cabin_multipliers": {
+      "economy": {"value": 1.0, "verified": true},
+      "premium_economy": {"value": 1.6, "verified": false, "note": "Not verified against the DEFRA table."},
+      "business": {"value": 2.9, "verified": false, "note": "CONFLICTING SOURCES. One gives business ~2.9x economy; another quotes long-haul business 0.41077 kg/pkm, which is 3.51x the verified 0.11704 economy figure. Unresolved -- do not rely on cabin class."},
+      "first": {"value": 4.0, "verified": false, "note": "Not verified."}
+    },
+    "gcd_uplift": {"value": 0.09, "verified": false, "note": "Uplift applied to great-circle distance for indirect routing, stacking and holding. DEFRA applies an uplift; the exact 9% figure was not confirmed against the methodology paper."},
+    "band_cutoffs_note": "DEFRA haul bands are defined for flights to/from the UK. Applying them to, e.g., US domestic flights is an approximation the DEFRA methodology does not endorse."
+  }
+}
