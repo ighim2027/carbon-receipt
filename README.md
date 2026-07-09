@@ -50,7 +50,7 @@ On the same inputs, v1 reported **8.26 t** and v2 reports **7.69 t**. Neither nu
 
 ---
 
-## The four TODOs
+## Remanining Tasks
 
 ### 1. Fetch factors from EPA instead of hardcoding — done, with a caveat
 
@@ -131,11 +131,3 @@ python -m unittest discover -s tests -t . -v
 - EPA, [eGRID2023 Rev 2 Summary Tables](https://www.epa.gov/system/files/documents/2025-06/summary_tables_rev2.pdf) — grid rates, grid loss
 - EPA, [GHG Equivalencies: Calculations and References](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references) — driving, natural gas
 - UK DESNZ, [GHG conversion factors 2025](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) — flights
-
-## TODO (v3)
-
-- [ ] ZCTA → subregion spatial join, so `--zip` can exist
-- [ ] Read short-haul, domestic, and cabin factors from the DEFRA spreadsheet directly; retire every `verified: false`
-- [ ] Confirm the GCD uplift against DEFRA's methodology paper
-- [ ] Natural gas: add CH4/N2O combustion and upstream leakage
-- [ ] Household size — per-capita vs per-household is currently ambiguous
